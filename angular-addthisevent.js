@@ -52,10 +52,12 @@
         restrict: 'A',
         scope: false,
         link: function (scope, element) {
-          $timeout(function () {
-            AddThisEvent.refresh();
-          }, 0);
+          element.hide();
+          AddThisEvent.refresh().then(function(){
+            element.show();
+          });
         }
       };
     }]);
 })(window, angular);
+
